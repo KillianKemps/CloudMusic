@@ -3,6 +3,13 @@ require_relative './tokens.rb'
 
 CLIENT = SoundCloud.new(TOKENS)
 
-# Display 10 hottest tracks
-p CLIENT.get('/tracks', :limit => 10, :order => 'hotness')
+def get_artist(name)
+  artists = CLIENT.get('/users', q: name)
+  return artists.first
+end
+
+def get_artist_tracks(artist_id)
+  tracks = CLIENT.get("/users/#{artist_id}/tracks")
+  return tracks
+end
 

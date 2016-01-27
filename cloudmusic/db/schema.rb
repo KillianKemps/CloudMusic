@@ -14,16 +14,23 @@
 ActiveRecord::Schema.define(version: 20160127113054) do
 
   create_table "artists", force: :cascade do |t|
-    t.string   "full_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "full_name",     null: false
+    t.integer  "soundcloud_id", null: false
+    t.string   "avatar_url"
+    t.string   "permalink_url"
+    t.integer  "track_count"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "tracks", force: :cascade do |t|
-    t.string   "name"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",       null: false
+    t.string   "stream_url",  null: false
+    t.integer  "artist_id",   null: false
+    t.integer  "duration"
+    t.string   "artwork_url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

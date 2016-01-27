@@ -4,7 +4,8 @@ class ArtistsController < ApplicationController
   end
 
   def search
-    @artists = Artist.where(full_name: params["name"])
+    @artists = MusicFinder.find_artist(params["name"])
+    return @artists
   end
 
   def show

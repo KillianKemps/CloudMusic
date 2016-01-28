@@ -10,7 +10,7 @@
     <li>
       <%= image_tag track.artwork_url %>
       <%= link_to track.title, download_path(track.id) %>
-      Duration: <%= track.duration / 1000 %>s
+      Duration <%= (Time.mktime(0) + track.duration / 1000).strftime("%H:%M:%S") %>
     </li>
   <% end %>
 </ul>

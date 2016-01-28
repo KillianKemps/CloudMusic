@@ -12,9 +12,15 @@ class MusicFinder
     if artists.any?
       return artists
     else
-      artists = self.client.get('/users', q: name)
-      artists.each do |artist|
-        artist["full_name"] = artist["full_name"] == '' ? artist["username"] : artist["full_name"]
+      users = self.client.get('/users', q: name)
+      artists = users.map do |user|
+        Artist.create({
+          full_name: user["username"],
+          soundcloud_id: user["id"],
+          avatar_url: user["avatar_url"],
+          permalink_url: user["permalink_url"],
+          track_count: user["track_count"]
+        })
       end
       return artists
     end

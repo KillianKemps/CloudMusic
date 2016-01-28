@@ -5,3 +5,8 @@
 <%= link_to 'See on SoundCloud', @artist.permalink_url %>
 <%= @artist.track_count %> tracks
 
+<ul>
+  <% @tracks.each do |track| %>
+    <li><%= track.title %></li>
+  <% end %>
+</ul>

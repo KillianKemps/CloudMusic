@@ -57,7 +57,11 @@ class MusicFinder
     return tracks
   end
 
-  def self.download_track(track_stream_url, name)
-    downloader.download(track_stream_url, { file_name: name, display_progress: true })
+  def self.get_track(track_id)
+    Track.find(track_id)
+  end
+
+  def self.download_track(track_stream_url)
+    downloader.resolve(track_stream_url)
   end
 end

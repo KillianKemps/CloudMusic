@@ -7,6 +7,6 @@
 
 <ul>
   <% @tracks.each do |track| %>
-    <li><%= track.title %></li>
+    <li><%= link_to track.title, download_path(track.id) %></li>
   <% end %>
 </ul>

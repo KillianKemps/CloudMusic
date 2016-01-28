@@ -10,6 +10,6 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = MusicFinder.get_artist(params["id"])
-    @tracks = MusicFinder.get_tracks(@artist.soundcloud_id)
+    @tracks = MusicFinder.find_tracks(@artist)
   end
 end

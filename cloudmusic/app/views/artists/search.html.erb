@@ -11,11 +11,16 @@ Hello World ;)
 <% if @artists.any? %>
   <ul>
     <% @artists.each do |artist| %>
-      <li>
-        <span class="artist-name">
-          <%= artist.full_name %>
-        </span>
-      </li>
+      <% if artist.track_count > 0 %>
+        <li>
+          <span class="artist-name">
+            <%= image_tag artist.avatar_url %>
+            <%= link_to artist.full_name, artist_path(artist.id) %>
+            <%= link_to 'See on SoundCloud', artist.permalink_url %>
+            <%= artist.track_count %> tracks
+          </span>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>

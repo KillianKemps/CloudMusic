@@ -25,4 +25,8 @@ class MusicFinder
       return artists
     end
   end
+
+  def self.get_artist(id)
+    Artist.find(id)
+  end
 end

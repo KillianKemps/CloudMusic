@@ -1,0 +1,7 @@
+<h1>CloudMusic</h1>
+<h2><%= @artist.full_name %></h2>
+
+<%= image_tag @artist.avatar_url %>
+<%= link_to 'See on SoundCloud', @artist.permalink_url %>
+<%= @artist.track_count %> tracks
+

@@ -9,5 +9,6 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    @artist = MusicFinder.get_artist(params["id"])
   end
 end

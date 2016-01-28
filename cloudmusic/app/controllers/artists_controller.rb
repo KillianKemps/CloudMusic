@@ -4,8 +4,12 @@ class ArtistsController < ApplicationController
   end
 
   def search
-    @artists = MusicFinder.find_artist(params["name"])
-    return @artists
+    if params["name"]
+      @artists = MusicFinder.find_artist(params["name"])
+      return @artists
+    else
+      @artists = []
+    end
   end
 
   def show

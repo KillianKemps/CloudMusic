@@ -39,7 +39,7 @@ class MusicFinder
 
   def self.find_tracks(artist)
     if artist.tracks.any?
-      artist.tracks 
+      artist.tracks
     else
       tracks = client.get("/users/#{artist.soundcloud_id}/tracks")
 
